@@ -1,10 +1,12 @@
+#include <dummy.h>
+
 //DOWNLOAD BUTTON FEVER LIBRARY
 
 
 #include <BfButtonManager.h>
 #include <BfButton.h>
 
-const unsigned int btnPin = A1;
+const unsigned int btnPin = A0;
 BfButtonManager manager(btnPin, 3);
 
 BfButton btn1(BfButton::ANALOG_BUTTON_ARRAY, 0);
