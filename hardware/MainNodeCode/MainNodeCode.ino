@@ -12,13 +12,16 @@
 #include <Wire.h>
 #endif
 
-/*
-  U8g2lib Example Overview:
-    Frame Buffer Examples: clearBuffer/sendBuffer. Fast, but may not work with all Arduino boards because of RAM consumption
-    Page Buffer Examples: firstPage/nextPage. Less RAM usage, should work with all Arduino boards.
-    U8x8 Text Only Example: No RAM usage, direct communication with display controller. No graphics, 8x8 Text only.
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
-*/
+#define SERVER_IP "192.168.225.46:3000/nodeapi"
+
+#ifndef STASSID
+#define STASSID "TeamFoxTrot"
+#define STAPSK  "Te@M$tr0T"
+#endif
+
 
 U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, /* clock=*/ 14, /* data=*/ 13, /* CS=*/ 15, /* reset=*/ 16); // ESP8266, E=clock=14, RW=data=13, RS=CS
 
@@ -29,6 +32,12 @@ BfButtonManager manager(btnPin, 3);
 BfButton btn1(BfButton::ANALOG_BUTTON_ARRAY, 0);
 BfButton btn2(BfButton::ANALOG_BUTTON_ARRAY, 1);
 BfButton btn3(BfButton::ANALOG_BUTTON_ARRAY, 2);
+
+//########################
+
+      String longitude = (String)12.969096382863247;
+      String latitude = (String)79.158296585083;
+
 
 short state = 0;
 
@@ -52,8 +61,9 @@ void ok() {
       question = "How many people";
 
       //Make JSON using ans1 and ans2
-
+      String json = "{\"lon\" : " + String(longitude) + ", \"lat\" : " + String(latitude) + "}";
       //Send JSON
+      sendJSON(json);
 
       //Start wait time of 6 hours;
   }
@@ -104,7 +114,12 @@ void pressHandler (BfButton *btn, BfButton::press_pattern_t pattern) {
 void setup(void) {
   u8g2.begin();
 
-
+  WiFi.begin(STASSID, STAPSK);
+  //COnnecting print
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+  
   manager.setADCResolution(1024);
 
   btn1.onPress(pressHandler);
@@ -129,9 +144,37 @@ void setup(void) {
 void loop(void) {
   manager.loop();
   //  u8g2.drawStr(0,10, "How many people?");
+   
 }
 
-void askQuestion() {
+void sendJSON(String json) {
+  if ((WiFi.status() == WL_CONNECTED)) {
+      WiFiClient client;
+      HTTPClient http;
+
+//      USE_SERIAL.print("[HTTP] begin...\n");
+      http.begin(client, "http://" SERVER_IP);
+      http.addHeader("Content-Type", "application/json");
+      
+//      Serial.println(json);
+      int httpCode = http.POST(json);
+
+      if (httpCode > 0) {
+
+//        USE_SERIAL.printf("[HTTP] POST... code: %d\n", httpCode);
+
+        if (httpCode == HTTP_CODE_OK) {
+          const String& payload = http.getString();
+//          USE_SERIAL.println("received payload:\n<<");
+//          USE_SERIAL.println(payload);
+//          USE_SERIAL.println(">>");
+        }
+      } else {
+//        USE_SERIAL.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpCode).c_str());
+      }
+
+      http.end();
+    }
 }
 
 void displayFrame() {
