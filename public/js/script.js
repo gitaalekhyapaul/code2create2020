@@ -9,26 +9,34 @@ var map = new mapboxgl.Map({
 
 var points = [];
 
-axios.get('/getdata')
-    .then((response) => {
-        console.log(response);
-        points = response.data;
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-    .then(() => {
-        points.forEach(function (marker) {
+window.onload = () => {
+    setInterval(() => {
+        axios.get('/getdata')
+            .then((response) => {
+                console.log(response.data);
+                points = response.data;
+                const arr = document.querySelectorAll(".marker");
+                arr.forEach((marker) => {
+                    marker.parentNode.removeChild(marker);
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .then(() => {
+                points.forEach(function (marker) {
 
-            var el = document.createElement('div');
-            el.className = 'marker';
+                    var el = document.createElement('div');
+                    el.className = 'marker';
 
-            new mapboxgl.Marker(el)
-                .setLngLat(marker.coordinates)
-                .setPopup(new mapboxgl.Popup({
-                        offset: 25
-                    }) // add popups
-                    .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
-                .addTo(map);
-        });
-    });
+                    new mapboxgl.Marker(el)
+                        .setLngLat(marker.coordinates)
+                        .setPopup(new mapboxgl.Popup({
+                                offset: 25
+                            }) // add popups
+                            .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
+                        .addTo(map);
+                });
+            });
+    }, 1000);
+};
