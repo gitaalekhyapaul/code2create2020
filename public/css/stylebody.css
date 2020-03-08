@@ -16,6 +16,7 @@ body {
   width: 55px;
   height: 100px;
   cursor: pointer;
+  transform: translateY(-50px);
 }
 .mapboxgl-popup {
   max-width: 200px;
@@ -52,6 +53,6 @@ nav a {
   margin: auto !important;
   float: unset;
 }
-#name {
+/* #name {
   color: ;
-}
+} */
