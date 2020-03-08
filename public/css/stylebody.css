@@ -3,7 +3,14 @@ body {
   padding: 0;
   overflow: hidden;
 }
+#logo{
+width: 60px;
+}
+#logospan {
+  background-color: #232323;
+  height: 150%;
 
+}
 #map {
   position: absolute;
   top: 0;

@@ -42,12 +42,13 @@ void loop() {
 
       USE_SERIAL.print("Enter latitude and longitude\n");
 
-      String longitude;
       String latitude;
+      String longitude;
 
       longitude = Serial.readStringUntil('\n');
       latitude = Serial.readStringUntil('\n');
-      String json = "{\"lon\" : " + String(longitude) + ", \"lat\" : " + String(latitude) + "}";
+      delay(1000);
+      String json = "{\"lat\" : " + String(longitude) + ", \"lon\" : " + String(latitude) + "}";
       Serial.println(json);
       int httpCode = http.POST(json);
 
