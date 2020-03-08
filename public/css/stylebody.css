@@ -42,9 +42,34 @@
   background: rgb(209, 209, 209);
   background: linear-gradient(
     0deg,
-    rgba(209, 209, 209, 1) 0%,
+    rgb(226, 225, 225) 0%,
     rgba(245, 245, 245, 1) 100%
   );
+}
+
+.table {
+  width: 100%;
+  height: auto;
+  margin-top: 10% !important;
+}
+
+.number {
+  margin: auto;
+  text-align: center;
+  font-size: 46px;
+}
+
+.data {
+  text-align: center;
+  padding-top: 0 !important;
+}
+
+.data-bottom {
+  border-bottom: 2px solid black;
+}
+
+.data-right {
+  border-right: 3px solid #dee2e6;
 }
 
 body {
@@ -57,4 +82,7 @@ nav a {
   color: aliceblue !important;
   display: flex !important;
   margin: auto !important;
+  font-family: "Inconsolata", monospace;
+  font-weight: lighter;
+  font-size: 18pt;
 }
