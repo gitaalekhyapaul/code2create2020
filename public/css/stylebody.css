@@ -1,30 +1,18 @@
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-#logo{
-width: 60px;
-}
-#logospan {
-  background-color: #232323;
-  height: 150%;
-
-}
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   padding: 0 !important;
 }
+
 .marker {
   background-image: url("marker.png");
   background-size: cover;
   width: 55px;
   height: 100px;
   cursor: pointer;
-  transform: translateY(-50px);
 }
+
 .mapboxgl-popup {
   max-width: 200px;
 }
@@ -33,12 +21,18 @@ width: 60px;
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+.mapboxgl-ctrl-attrib {
+  display: none;
+}
+
 .navbar {
   position: relative;
   z-index: 10;
-  height: 10vh;
   background-color: #232323 !important;
+  box-shadow: 10px 10px 8px #888888;
 }
+
 .jumbotron {
   display: flexbox;
   float: right;
@@ -51,15 +45,16 @@ width: 60px;
     rgba(209, 209, 209, 1) 0%,
     rgba(245, 245, 245, 1) 100%
   );
-  border-left: 3px #f1f0cf;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 nav a {
   color: aliceblue !important;
   display: flex !important;
-  align-items: center !important;
   margin: auto !important;
-  float: unset;
 }
-/* #name {
-  color: ;
-} */

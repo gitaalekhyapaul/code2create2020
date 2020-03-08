@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8' />
-    <title>Hindcon</title>
+    <title>BharatBeacon</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
@@ -16,42 +16,26 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-            <ul class="navbar-nav ml-auto text-center">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">All</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Food</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mx-auto my-2 order-0 order-md-1 position-relative">
-            <span id="logospan" class="container"><img src="css/ndrf.png" id="logo" alt=""></span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-            <ul class="navbar-nav mr-auto text-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Medical</a>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inactive</a>
-                </li>
-                </li>
-            </ul>
-        </div>
+    <nav class="nav navbar">
+        <a href="">All</a>
+        <a href="">Food</a>
+        <img src="/css/ndrf.png" alt="" width="3.8%" class="d-none d-lg-block">
+        <a href="">Medical</a>
+        <a href="">Inactive</a>
     </nav>
-    <div id='map' class='col-8'></div>
-    <div class="jumbotron col-4">
+
+
+    <div id='map' class='col-md-8'></div>
+    <div class="jumbotron col-4 d-none d-md-block">
         <h1 class="display-4" id="jumbo"> <span id="name">BharatBeacon</span></h1>
         <p class="lead">Digital India, Digital rescues.</p>
         <hr class="my-4">
         <p>Statistical data goes here.
         </p>
     </div>
+
+
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
