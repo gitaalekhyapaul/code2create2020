@@ -7,29 +7,49 @@ var map = new mapboxgl.Map({
     zoom: 5
 });
 
+// const axios = require('axios');
 
-var points = [{
-        coordinates: [78.4259033203125, 12.758231584069796],
-        title: 'Mapbox',
-        description: 'Washington, D.C.'
-    },
-    {
-        coordinates: [79.398193359375, 12.130634779728421],
-        title: 'Mapbox',
-        description: 'San Francisco, California'
-    }
-];
+var points = [];
 
-points.forEach(function (marker) {
+//Make a request for a user with a given ID
+axios.get('/getdata')
+    .then((response) => {
+        console.log(response);
+        points = response.data;
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .then(() =>{
+        points.forEach(function (marker) {
 
-    var el = document.createElement('div');
-    el.className = 'marker';
+            var el = document.createElement('div');
+            el.className = 'marker';
+        
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.coordinates)
+                .setPopup(new mapboxgl.Popup({
+                        offset: 25
+                    }) // add popups
+                    .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
+                .addTo(map);
+        });
+    });
+    // .then(function (response) {
+    //     //CJHANGE NEEEDED
+    //     console.log(response);
+    // })
 
-    new mapboxgl.Marker(el)
-        .setLngLat(marker.coordinates)
-        .setPopup(new mapboxgl.Popup({
-                offset: 25
-            }) // add popups
-            .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
-        .addTo(map);
-});
+// points.forEach(function (marker) {
+
+//     var el = document.createElement('div');
+//     el.className = 'marker';
+
+//     new mapboxgl.Marker(el)
+//         .setLngLat(marker.coordinates)
+//         .setPopup(new mapboxgl.Popup({
+//                 offset: 25
+//             }) // add popups
+//             .setHTML('<h3>' + marker.title + '</h3><p>' + marker.description + '</p>'))
+//         .addTo(map);
+// });
