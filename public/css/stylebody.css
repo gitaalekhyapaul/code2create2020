@@ -1,19 +1,20 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  padding: 0 !important;
 }
 .marker {
   background-image: url("marker.png");
   background-size: cover;
-  width: 60px;
-  height: 90px;
+  width: 55px;
+  height: 100px;
   cursor: pointer;
 }
 .mapboxgl-popup {
@@ -23,4 +24,34 @@ body {
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+}
+.navbar {
+  position: relative;
+  z-index: 10;
+  height: 10vh;
+  background-color: #232323 !important;
+}
+.jumbotron {
+  display: flexbox;
+  float: right;
+  height: 90vh !important;
+  margin: 0;
+  border-radius: 0%;
+  background: rgb(209, 209, 209);
+  background: linear-gradient(
+    0deg,
+    rgba(209, 209, 209, 1) 0%,
+    rgba(245, 245, 245, 1) 100%
+  );
+  border-left: 3px #f1f0cf;
+}
+nav a {
+  color: aliceblue !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: auto !important;
+  float: unset;
+}
+#name {
+  color: ;
 }
