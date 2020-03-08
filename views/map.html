@@ -15,6 +15,17 @@
     <div id='map'></div>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const axios = require('axios');
+
+        // Make a request for a user with a given ID
+        axios.get('http://192.168.225.46:3000/getdata')
+        .then(function (response) {
+            //CJHANGE NEEEDED
+            console.log(response);
+        })
+    </script>
 </body>
 
 </html>
