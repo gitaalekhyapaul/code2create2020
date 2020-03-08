@@ -8,8 +8,8 @@
 .marker {
   background-image: url("marker.png");
   background-size: cover;
-  width: 55px;
-  height: 100px;
+  width: 42px;
+  height: 150px;
   cursor: pointer;
 }
 
