@@ -9,13 +9,16 @@ const rootDir = require('./utils/path');
 const adminRoutes = require('./routes/admin');
 const dashboardRoutes = require('./routes/dashboard');
 const getdataRoutes = require('./routes/getdata');
+const nodeapiRoutes = require('./routes/nodeapi');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(rootDir, 'public')));
 
 app.use(adminRoutes);
 app.use(getdataRoutes);
+app.use(nodeapiRoutes);
 app.use(dashboardRoutes);
 
 app.use((req, res, next) => {

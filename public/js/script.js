@@ -7,6 +7,7 @@ var map = new mapboxgl.Map({
     zoom: 5
 });
 
+
 var points = [{
         coordinates: [78.4259033203125, 12.758231584069796],
         title: 'Mapbox',
