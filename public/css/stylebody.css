@@ -13,6 +13,22 @@
   cursor: pointer;
 }
 
+nav a {
+  color: aliceblue !important;
+  display: flex !important;
+  margin: auto !important;
+  font-family: "Inconsolata", monospace;
+  font-weight: lighter;
+  font-size: 18pt;
+}
+
+.navbar {
+  position: relative;
+  z-index: 10;
+  background-color: #232323 !important;
+  box-shadow: 10px 10px 8px #888888;
+}
+
 .mapboxgl-popup {
   max-width: 200px;
 }
@@ -26,17 +42,15 @@
   display: none;
 }
 
-.navbar {
-  position: relative;
-  z-index: 10;
-  background-color: #232323 !important;
-  box-shadow: 10px 10px 8px #888888;
+.avbar {
+  width: 30px;
 }
 
 .jumbotron {
   display: flexbox;
   float: right;
-  height: 90vh !important;
+  z-index: 80;
+  height: 100vh;
   margin: 0;
   border-radius: 0%;
   background: rgb(209, 209, 209);
@@ -66,10 +80,6 @@
 
 .data-bottom {
   border-bottom: 2px solid black;
-}
-
-.data-right {
-  border-right: 3px solid #dee2e6a6;
 }
 
 body {

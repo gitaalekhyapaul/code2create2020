@@ -18,14 +18,10 @@
 
 <body>
     <nav class="nav navbar">
-        <a href="" class="button">ALL</a>
-        <a href="">FOOD</a>
+        <a href="" class="button">ALL</a><a> MARKERS</a>
         <img src="/css/ndrf.png" alt="" width="3.8%" class="d-none d-lg-block">
-        <a href="">MEDICAL</a>
-        <a href="">INACTIVE</a>
+        <a href="">MEDICAL</a> <a> REQUESTS</a>
     </nav>
-
-
     <div id='map' class='col-md-8'></div>
     <div class="jumbotron col-4 d-none d-md-block">
         <h1 class="display-4" id="jumbo"> <span id="name">BharatBeacon</span></h1>
@@ -33,20 +29,19 @@
         <hr class="my-4">
         <table class="table">
             <tr>
-                <th class="number data-right">1</th>
-                <th class="number">1</th>
+                <th class="number" id="beaconCounter">0</th>
             </tr>
             <tr>
-                <td class="data data-bottom data-right">All Beacons</td>
-                <td class="data data-bottom">Require Food</td>
+                <td class="data data-bottom">All Beacons</td>
+            </tr>
+            <th class="number" id="populationCounter">0</th>
+            <tr>
+                <td class="data data-bottom">Stranded Population</td>
             </tr>
             <tr>
-                <th class="number data-right">1</th>
-                <th class="number">1</th>
+                <th class="number" id="medicalCounter">0</th>
             <tr>
-                <td class="data data-bottom data-right">Medical Emergencies</td>
-                <td class="data data-bottom">Inactive Beacons</td>
-            </tr>
+                <td class="data data-bottom">Medical Emergencies</td>
             </tr>
         </table>
     </div>
