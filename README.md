@@ -5,11 +5,11 @@
 ## **Team Name** - Team FoxTrot
 
 ### **Members**  
-* [Gita Alekhya Paul](www.github.com/gitaalekhyapaul)  
-* [Paras Rawat](www.github.com/TrizteX)  
-* [Sashrika Surya](www.github.com/sashrika15)  
-* [Snehil](www.github.com/sneakysensei)  
-* [Yashvardhan Jagnani](www.github.com/jagnani73)   
+* [Gita Alekhya Paul](https://github.com/gitaalekhyapaul)  
+* [Paras Rawat](https://github.com/TrizteX)  
+* [Sashrika Surya](https://github.com/sashrika15)  
+* [Snehil](https://github.com/sneakysensei)  
+* [Yashvardhan Jagnani](https://github.com/jagnani73)   
 
 ---
 
